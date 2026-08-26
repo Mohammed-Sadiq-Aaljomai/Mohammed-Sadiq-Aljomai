@@ -2773,6 +2773,87 @@
 		.lang-dropdown-btn span {
 			font-family: inherit !important;
 		}
+		/* ─── RTL icon spacing for Contact Me & Read More ─── */
+		html[dir="rtl"] .profile-contact-btn i {
+			margin-right: 0;
+			margin-left: 8px;
+		}
+		html[dir="rtl"] .read-more-btn i {
+			margin-right: 0;
+			margin-left: 6px;
+		}
+		html[dir="rtl"] .discover-btn i {
+			margin-right: 0;
+			margin-left: 6px;
+		}
+		/* ─── Modal title & subtitle alignment in RTL ─── */
+		html[dir="rtl"] .modal-title,
+		html[dir="rtl"] .modal-subtitle {
+			text-align: right;
+			padding-right: 0;
+			margin-right: 0;
+		}
+		/* ─── Thmanyah font for modal link buttons ─── */
+		.modal-link-btn,
+		.modal-link-btn span {
+			font-family: "Thmanyah Sans", "Segoe UI", system-ui, sans-serif !important;
+		}
+		/* ─── Download CV buttons: match contact items ─── */
+		#cvContactBtn,
+		#downloadCvBtn {
+			display: inline-flex !important;
+			align-items: center;
+			gap: 6px !important;
+			background: rgba(255, 255, 255, 0.12) !important;
+			color: #fff !important;
+			border: 1px solid rgba(255, 255, 255, 0.08) !important;
+			padding: 10px 24px !important;
+			border-radius: 40px !important;
+			font-weight: 600 !important;
+			font-size: 0.95rem !important;
+			transition: var(--transition) !important;
+			cursor: pointer;
+			text-decoration: none;
+			box-shadow: none !important;
+		}
+		#cvContactBtn:hover,
+		#downloadCvBtn:hover {
+			background: rgba(255, 255, 255, 0.22) !important;
+			transform: translateY(-2px);
+		}
+		/* ─── RTL spacing for Download CV button icons ─── */
+		html[dir="rtl"] #cvContactBtn i,
+		html[dir="rtl"] #downloadCvBtn i {
+			margin-right: 0;
+			margin-left: 9px;   /* same spacing as Discover button in RTL */
+		}
+		/* ─── Navigation panel buttons alignment in RTL ─── */
+		html[dir="rtl"] .nav-links .lang-dropdown-btn,
+		html[dir="rtl"] .nav-links .theme-toggle-btn,
+		html[dir="rtl"] .nav-links a {
+			text-align: right;
+			justify-content: flex-start;
+		}
+
+		/* ─── Consistent icon spacing in RTL ─── */
+		html[dir="rtl"] .nav-links .lang-dropdown-btn i,
+		html[dir="rtl"] .nav-links .theme-toggle-btn i,
+		html[dir="rtl"] .nav-links a i {
+			margin-right: 0;
+			margin-left: 10px; /* matches the spacing of other nav items */
+		}
+
+		/* ─── Ensure dropdown menu aligns to the right in RTL ─── */
+		html[dir="rtl"] .nav-lang .lang-dropdown-menu {
+			left: 0;
+			right: auto;
+		}
+		/* ─── Equal height for About Me cards on laptop ─── */
+		@media (min-width: 992px) {
+			.about-grid {
+				align-items: stretch;
+			}
+		}
     </style>
 </head>
 <body>
@@ -3446,6 +3527,13 @@
 					<h4 data-i18n="habits-6-title">Continuous Learning</h4>
 					<p data-i18n="habits-6-desc">Weekly online courses or webinars to stay updated with emerging technologies.</p>
 				</div>
+				
+				<!-- Playing Videogames -->
+				<div class="habit-card">
+					<div class="habit-icon"><i class="fa-solid fa-gamepad"></i></div>
+					<h4 data-i18n="habits-gaming-title">Playing Videogames</h4>
+					<p data-i18n="habits-gaming-desc">Playing video games to relax and improve strategic thinking, hand-eye coordination, and problem-solving skills.</p>
+				</div>
 			</div>
         </div>
     </section>
@@ -3511,6 +3599,12 @@
 				<p class="contact-sub" data-i18n="contact-sub">
 					I'm always open to discussing new projects, research collaborations, career opportunities, or scholarships in the biomedical engineering space.
 				</p>
+				<!-- Download CV button in contact section -->
+				<div style="text-align: center; margin: 20px 0 16px;">
+					<button id="cvContactBtn" class="modal-link-btn" style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 28px; background: var(--accent); color: #fff; border-radius: 30px; border: none; font-weight: 600; font-size: 0.95rem; transition: var(--transition); cursor: pointer; box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);">
+						<i class="fa-solid fa-file"></i> <span data-i18n="cv-download-btn">Download My CV</span>
+					</button>
+				</div>
 				<div class="contact-phone-label" data-i18n="contact-phone-label">My Phone Numbers:</div>
 				<div class="contact-items">
 					<div class="contact-item" data-copy="+967782929873" style="cursor:pointer;">
@@ -3690,6 +3784,8 @@
 				'about-location-label': 'Current Location',
 				'about-location-value': 'Yemen',
 				'about-title-label': 'Titles',
+				'habits-gaming-title': 'Playing Videogames',
+				'habits-gaming-desc': 'Playing video games to relax and improve strategic thinking, hand-eye coordination, and problem-solving skills.',
 				'about-title-value': 'Biomedical Engineer | Biomedical Equipment Engineer | Field Service and Technical Engineering | Machine Learning Engineer',
 				'summary-text': 'A Biomedical Engineer with hands-on expertise in the maintenance, calibration, and installation of medical devices. Passionate about technical management and continuous improvement, committed to be an integral asset to any organization by driving operational excellence and reliability in healthcare environments.'
             },
@@ -3811,6 +3907,8 @@
 				'about-location-label': 'الموقع الحالي',
 				'about-location-value': 'اليمن',
 				'about-title-label': 'المسميات الوظيفية',
+				'habits-gaming-title': 'لعب ألعاب الفيديو',
+				'habits-gaming-desc': 'لعب ألعاب الفيديو للاسترخاء وتحسين التفكير الاستراتيجي، والتنسيق بين اليد والعين، ومهارات حل المشكلات.',
 				'about-title-value': 'مهندس طب حيوي | مهندس معدات طبية | مهندس خدمة ميدانية وهندسة تقنية | مهندس تعلم آلة',
 				'summary-text': 'مهندس (معدات طبية / طب حيوي) يتمتع بخبرة عملية في صيانة ومعايرة وتركيب الأجهزة الطبية. شغوف بالإدارة التقنية والتحسين المستمر، ملتزم بأن أكون رصيداً أساسياً لأي منظمة من خلال دفع التميز التشغيلي والموثوقية في بيئات الرعاية الصحية.'
             },
@@ -3932,6 +4030,8 @@
 				'about-location-label': 'Ubicación actual',
 				'about-location-value': 'Yemen',
 				'about-title-label': 'Títulos',
+				'habits-gaming-title': 'Jugar videojuegos',
+				'habits-gaming-desc': 'Jugar videojuegos para relajarse y mejorar el pensamiento estratégico, la coordinación mano-ojo y las habilidades de resolución de problemas.',
 				'about-title-value': 'Ingeniero Biomédico | Ingeniero de Equipos Biomédicos | Ingeniero de Servicio de Campo e Ingeniería Técnica | Ingeniero de Aprendizaje Automático',
 				'summary-text': 'Ingeniero Biomédico con experiencia práctica en el mantenimiento, calibración e instalación de dispositivos médicos. Apasionado por la gestión técnica y la mejora continua, comprometido a ser un activo integral para cualquier organización impulsando la excelencia operativa y la fiabilidad en entornos sanitarios.',
             },
@@ -4053,6 +4153,8 @@
 				'about-location-label': 'Aktueller Standort',
 				'about-location-value': 'Jemen',
 				'about-title-label': 'Titel',
+				'habits-gaming-title': 'Videospiele spielen',
+				'habits-gaming-desc': 'Videospiele spielen, um zu entspannen und strategisches Denken, Hand-Augen-Koordination und Problemlösungsfähigkeiten zu verbessern.',
 				'about-title-value': 'Biomediziningenieur | Biomedizintechniker | Field-Service- und Technikingenieur | Ingenieur für maschinelles Lernen',
 				'summary-text': 'Biomediziningenieur mit praktischer Erfahrung in der Wartung, Kalibrierung und Installation medizinischer Geräte. Leidenschaftlich für technisches Management und kontinuierliche Verbesserung, engagiert, ein wesentlicher Bestandteil jeder Organisation zu sein, indem er operative Exzellenz und Zuverlässigkeit in Gesundheitseinrichtungen vorantreibt.'
             },
@@ -4174,6 +4276,8 @@
 				'about-location-label': 'Localisation actuelle',
 				'about-location-value': 'Yémen',
 				'about-title-label': 'Titres',
+				'habits-gaming-title': 'Jouer aux jeux vidéo',
+				'habits-gaming-desc': 'Jouer aux jeux vidéo pour se détendre et améliorer la pensée stratégique, la coordination œil-main et les compétences en résolution de problèmes.',
 				'about-title-value': 'Ingénieur Biomédical | Ingénieur en Équipement Biomédical | Ingénieur de Service Terrain et Ingénierie Technique | Ingénieur en Apprentissage Automatique',
 				'summary-text': 'Ingénieur biomédical avec une expertise pratique dans la maintenance, l\'étalonnage et l\'installation des dispositifs médicaux. Passionné par la gestion technique et l\'amélioration continue, engagé à être un atout intégral pour toute organisation en favorisant l\'excellence opérationnelle et la fiabilité dans les environnements de soins de santé.'
             },
@@ -4295,6 +4399,8 @@
 				'about-location-label': 'Mevcut Konum',
 				'about-location-value': 'Yemen',
 				'about-title-label': 'Unvanlar',
+				'habits-gaming-title': 'Video oyunları oynamak',
+				'habits-gaming-desc': 'Rahatlamak ve stratejik düşünme, el-göz koordinasyonu ve problem çözme becerilerini geliştirmek için video oyunları oynamak.',
 				'about-title-value': 'Biyomedikal Mühendis | Biyomedikal Ekipman Mühendisi | Saha Hizmeti ve Teknik Mühendis | Makine Öğrenimi Mühendisi',
 				'summary-text': 'Tıbbi cihazların bakımı, kalibrasyonu ve kurulumunda uygulamalı uzmanlığa sahip Biyomedikal Mühendis. Teknik yönetim ve sürekli iyileştirme konusunda tutkulu, sağlık ortamlarında operasyonel mükemmellik ve güvenilirliği teşvik ederek herhangi bir kuruluş için ayrılmaz bir varlık olmaya kararlı.'
             },
@@ -4416,6 +4522,8 @@
 				'about-location-label': 'Nåværende plassering',
 				'about-location-value': 'Jemen',
 				'about-title-label': 'Titler',
+				'habits-gaming-title': 'Spille videospill',
+				'habits-gaming-desc': 'Spille videospill for å slappe av og forbedre strategisk tenkning, hånd-øye-koordinasjon og problemløsningsferdigheter.',
 				'about-title-value': 'Biomedisinsk Ingeniør | Biomedisinsk Utstyrsingeniør | Felt Service og Teknisk Ingeniør | Maskinlæringsingeniør',
 				'summary-text': 'Biomedisinsk ingeniør med praktisk ekspertise innen vedlikehold, kalibrering og installasjon av medisinsk utstyr. Lidenskapelig opptatt av teknisk ledelse og kontinuerlig forbedring, forpliktet til å være en integrert ressurs for enhver organisasjon ved å fremme operasjonell fortreffelighet og pålitelighet i helsevesenet.'
             },
@@ -4537,6 +4645,8 @@
 				'about-location-label': '当前位置',
 				'about-location-value': '也门',
 				'about-title-label': '职称',
+				'habits-gaming-title': '玩电子游戏',
+				'habits-gaming-desc': '玩电子游戏来放松，提高战略思维、手眼协调和解决问题的能力。',
 				'about-title-value': '生物医学工程师 | 生物医学设备工程师 | 现场服务与技术工程师 | 机器学习工程师',
 				'summary-text': '一位生物医学工程师，在医疗设备的维护、校准和安装方面具有丰富的实践经验。热衷于技术管理和持续改进，致力于通过推动医疗环境中的卓越运营和可靠性，成为任何组织中不可或缺的资产。'
             },
@@ -4658,6 +4768,8 @@
 				'about-location-label': '현재 위치',
 				'about-location-value': '예멘',
 				'about-title-label': '직함',
+				'habits-gaming-title': '비디오 게임 하기',
+				'habits-gaming-desc': '비디오 게임을 하여 긴장을 풀고 전략적 사고, 손-눈 협응 및 문제 해결 능력을 향상시킵니다.',
 				'about-title-value': '의공학 엔지니어 | 의료 장비 엔지니어 | 필드 서비스 및 기술 엔지니어 | 기계 학습 엔지니어',
 				'summary-text': '의료 기기 유지 보수, 보정 및 설치에 대한 실무 전문 지식을 갖춘 생물 의학 엔지니어. 기술 관리 및 지속적인 개선에 열정적이며, 의료 환경에서 운영 우수성과 신뢰성을 주도하여 모든 조직에 필수적인 자산이 되기 위해 노력하고 있습니다.'
             },
@@ -4779,6 +4891,8 @@
 				'about-location-label': '現在の場所',
 				'about-location-value': 'イエメン',
 				'about-title-label': '肩書き',
+				'habits-gaming-title': 'ビデオゲームをする',
+				'habits-gaming-desc': 'ビデオゲームをしてリラックスし、戦略的思考、手と目の協調、問題解決スキルを向上させる。',
 				'about-title-value': '生体医用工学者 | 生体医療機器技師 | フィールドサービスおよび技術エンジニア | 機械学習エンジニア',
 				'summary-text': '医療機器の保守、校正、設置における実践的な専門知識を持つ生体医用工学者。技術管理と継続的改善に情熱を持ち、医療環境における運用の卓越性と信頼性を推進することで、あらゆる組織にとって不可欠な資産となることを約束します。'
             },
@@ -4900,6 +5014,8 @@
 				'about-location-label': 'Localização atual',
 				'about-location-value': 'Iêmen',
 				'about-title-label': 'Títulos',
+				'habits-gaming-title': 'Jogar videogames',
+				'habits-gaming-desc': 'Jogar videogames para relaxar e melhorar o pensamento estratégico, a coordenação mão-olho e as habilidades de resolução de problemas.',
 				'about-title-value': 'Engenheiro Biomédico | Engenheiro de Equipamentos Biomédicos | Engenheiro de Serviço de Campo e Engenharia Técnica | Engenheiro de Aprendizado de Máquina',
 				'summary-text': 'Engenheiro Biomédico com experiência prática na manutenção, calibração e instalação de dispositivos médicos. Apaixonado por gestão técnica e melhoria contínua, comprometido em ser um ativo integral para qualquer organização, promovendo a excelência operacional e confiabilidade em ambientes de saúde.'
             },
@@ -5021,6 +5137,8 @@
 				'about-location-label': 'Текущее местонахождение',
 				'about-location-value': 'Йемен',
 				'about-title-label': 'Должности',
+				'habits-gaming-title': 'Играть в видеоигры',
+				'habits-gaming-desc': 'Играть в видеоигры, чтобы расслабиться и улучшить стратегическое мышление, координацию рук и глаз, а также навыки решения проблем.',
 				'about-title-value': 'Биомедицинский инженер | Инженер по биомедицинскому оборудованию | Инженер по полевому обслуживанию и технической инженерии | Инженер по машинному обучению',
 				'summary-text': 'Биомедицинский инженер с практическим опытом в обслуживании, калибровке и установке медицинских устройств. Увлечен техническим управлением и постоянным совершенствованием, стремится стать неотъемлемым активом для любой организации, обеспечивая операционное совершенство и надежность в медицинских учреждениях.'
             },
@@ -5142,6 +5260,8 @@
 				'about-location-label': 'वर्तमान स्थान',
 				'about-location-value': 'यमन',
 				'about-title-label': 'उपाधियाँ',
+				'habits-gaming-title': 'वीडियो गेम खेलना',
+				'habits-gaming-desc': 'वीडियो गेम खेलना आराम करने और रणनीतिक सोच, हाथ-आँख समन्वय और समस्या-समाधान कौशल में सुधार करने के लिए।',
 				'about-title-value': 'बायोमेडिकल इंजीनियर | बायोमेडिकल उपकरण इंजीनियर | फील्ड सर्विस और तकनीकी इंजीनियर | मशीन लर्निंग इंजीनियर',
 				'summary-text': 'एक बायोमेडिकल इंजीनियर जिसे चिकित्सा उपकरणों के रखरखाव, अंशांकन और स्थापना में हाथों-हाथ विशेषज्ञता है। तकनीकी प्रबंधन और निरंतर सुधार के प्रति जुनूनी, स्वास्थ्य देखभाल वातावरण में परिचालन उत्कृष्टता और विश्वसनीयता को बढ़ावा देकर किसी भी संगठन के लिए एक अभिन्न संपत्ति बनने के लिए प्रतिबद्ध।',
             },
@@ -6453,6 +6573,14 @@
 				toast.style.transition = 'opacity 0.3s, transform 0.3s';
 				setTimeout(() => toast.remove(), 300);
 			}, 2000);
+		}
+		// ─── CV button in contact section ───
+		const cvContactBtn = document.getElementById('cvContactBtn');
+		if (cvContactBtn) {
+			cvContactBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				openModal('cv');
+			});
 		}
 		
 		
