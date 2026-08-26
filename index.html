@@ -292,22 +292,85 @@
             right: 0;
         }
         .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            padding: 10px 16px;
-            border-radius: 30px;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            width: 100%;
-            hite-space: normal;    
+			text-decoration: none;
+			color: var(--text);
+			font-weight: 500;
+			padding: 10px 16px;
+			transition: var(--transition);
+			font-size: 0.95rem;
+			width: 100%;
+			white-space: normal;
 			word-break: break-word;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
+			position: relative;
+		}
+
+		.nav-links a::after {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 2px;
+			background-color: var(--primary);
+			bottom: 0;
+			left: 0;
+			transition: var(--transition);
+		}
+
+		.nav-links a:hover {
+			color: var(--primary);
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.nav-links a.active {
+			color: var(--primary);
+		}
+
+		.nav-links a.active::after {
+			width: 100%;
+		}
+		/* Underline effect for Language & Dark Mode buttons in nav-links */
+		.nav-links .lang-dropdown-btn,
+		.nav-links .theme-toggle-btn {
+			position: relative;
+			padding: 10px 16px;
+			width: 100%;
+			justify-content: flex-start;
+			background: transparent !important;  /* remove any background on hover */
+			border: none;
+			color: var(--text);
+			font-weight: 500;
+			font-size: 0.95rem;
+			cursor: pointer;
+			transition: var(--transition);
+			border-radius: 0; /* optional, keeps them aligned */
+		}
+
+		.nav-links .lang-dropdown-btn::after,
+		.nav-links .theme-toggle-btn::after {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 2px;
+			background-color: var(--primary);
+			bottom: 0;
+			left: 0;
+			transition: var(--transition);
+		}
+
+		.nav-links .lang-dropdown-btn:hover,
+		.nav-links .theme-toggle-btn:hover {
+			color: var(--primary) !important;  /* override any existing hover color */
+		}
+
+		.nav-links .lang-dropdown-btn:hover::after,
+		.nav-links .theme-toggle-btn:hover::after {
+			width: 100%;
+		}
+
+		/* Keep active state for Language button? Not needed, but you can add if desired */
+        
 
         /* ──────────── COVER BANNER + PROFILE AREA ──────────── */
 		.cover-banner {
@@ -899,6 +962,10 @@
 		html[dir="rtl"] .skill-category {
 			direction: rtl;
 			text-align: right;
+		}
+		html[dir="rtl"] .nav-links a::after {
+			left: auto;
+			right: 0;
 		}
 
 		/* Flip the label: name on right, percentage on left */
@@ -1863,10 +1930,16 @@
 		html.dark-mode .nav-links a {
 			color: var(--text);
 		}
-		html.dark-mode .nav-links a:hover,
-		html.dark-mode .nav-links a.active {
-			background: var(--primary-light);
+		html.dark-mode .nav-links a:hover {
 			color: var(--accent);
+		}
+
+		html.dark-mode .nav-links a.active {
+			color: var(--accent);
+		}
+
+		html.dark-mode .nav-links a::after {
+			background-color: var(--accent);
 		}
 
 		html.dark-mode .hamburger span {
@@ -1875,6 +1948,15 @@
 
 		html.dark-mode .nav-divider hr {
 			border-top-color: rgba(255, 255, 255, 0.15);
+		}
+		html.dark-mode .nav-links .lang-dropdown-btn::after,
+		html.dark-mode .nav-links .theme-toggle-btn::after {
+			background-color: var(--accent);
+		}
+
+		html.dark-mode .nav-links .lang-dropdown-btn:hover,
+		html.dark-mode .nav-links .theme-toggle-btn:hover {
+			color: var(--accent) !important;
 		}
 
 		/* ── Language dropdown (inside menu) ── */
@@ -2797,7 +2879,7 @@
 				</li>
 
 				<!-- ─── MY CV ─── -->
-				<li><a href="#" id="cvTrigger" data-i18n="nav-cv"><i class="fa-solid fa-clipboard"></i> My CV</a></li>
+				<li><a href="#" id="cvTrigger" data-i18n="nav-cv"><i class="fa-solid fa-file"></i> My CV</a></li>
 
 				<!-- ─── DARK MODE TOGGLE ─── -->
 				<li>
@@ -3593,8 +3675,8 @@
 				'skill-soft-13': 'Mentoring',
 				'toast-ready': 'Thank you for your interest – feel free to reach out anytime!',
 				'page-title': 'Eng. Mohammed Sadiq Aljomai | Biomedical Engineer Portfolio',
-				'nav-cv': 'My CV',
-				'modal_cv_title': 'My CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; My CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; My CV',
 				'modal_cv_subtitle': 'Mohammed Sadiq Aljomai – Biomedical Engineer',
 				'cv-download-btn': 'Download My CV',
 				'theme-dark': 'Dark Mode',
@@ -3714,8 +3796,8 @@
 				'skill-soft-13': 'التوجيه والإرشاد',
 				'toast-ready': 'شكراً لاهتمامك – لا تتردد في التواصل معي في أي وقت!',
 				'page-title': 'المهندس/ محمد صادق الجماعي | مهندس طب حيوي - الملف الشخصي', 
-				'nav-cv': 'سيرتي الذاتية',
-				'modal_cv_title': 'سيرتي الذاتية',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; سيرتي الذاتية',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; سيرتي الذاتية',
 				'modal_cv_subtitle': 'المهندس/ محمد صادق الجماعي – مهندس طب حيوي',
 				'cv-download-btn': 'تحميل السيرة الذاتية',
 				'theme-dark': 'الوضع المظلم',
@@ -3835,8 +3917,8 @@
 				'skill-soft-13': 'Mentoría',
 				'toast-ready': '¡Gracias por tu interés – no dudes en contactarme cuando quieras!',
 				'page-title': 'Ing. Mohammed Sadiq Aljomai | Portafolio de Ingeniero Biomédico',
-				'nav-cv': 'Mi CV',
-				'modal_cv_title': 'Mi CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; Mi CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; Mi CV',
 				'modal_cv_subtitle': 'Mohammed Sadiq Aljomai – Ingeniero Biomédico',
 				'cv-download-btn': 'Descargar mi CV',
 				'theme-dark': 'Modo oscuro',
@@ -3956,8 +4038,8 @@
 				'skill-soft-13': 'Mentoring',
 				'toast-ready': '¡Vielen Dank für Ihr Interesse – Sie können sich jederzeit gerne bei mir melden!',
 				'page-title': 'Ing. Mohammed Sadiq Aljomai | Portfolio Biomediziningenieur',
-				'nav-cv': 'Mein CV',
-				'modal_cv_title': 'Mein CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; Mein CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; Mein CV',
 				'modal_cv_subtitle': 'Mohammed Sadiq Aljomai – Biomediziningenieur',
 				'cv-download-btn': 'Mein CV herunterladen',
 				'theme-dark': 'Dunkler Modus',
@@ -4077,8 +4159,8 @@
 				'skill-soft-13': 'Mentorat',
 				'toast-ready': "Merci pour votre intérêt – n'hésitez pas à me contacter à tout moment !",
 				'page-title': 'Ing. Mohammed Sadiq Aljomai | Portfolio d\'Ingénieur Biomédical',
-				'nav-cv': 'Mon CV',
-				'modal_cv_title': 'Mon CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; Mon CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; Mon CV',
 				'modal_cv_subtitle': 'Mohammed Sadiq Aljomai – Ingénieur Biomédical',
 				'cv-download-btn': 'Télécharger mon CV',
 				'theme-dark': 'Mode sombre',
@@ -4198,8 +4280,8 @@
 				'skill-soft-13': 'Mentorluk',
 				'toast-ready': 'İlginiz için teşekkürler – istediğiniz zaman bana ulaşmaktan çekinmeyin!',
 				'page-title': 'Müh. Muhammed Sadiq Aljomai | Biyomedikal Mühendis Portföyü',
-				'nav-cv': 'CV\'im',
-				'modal_cv_title': 'CV\'im',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; CV\'im',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; CV\'im',
 				'modal_cv_subtitle': 'Muhammed Sadiq Aljomai – Biyomedikal Mühendis',
 				'cv-download-btn': 'CV\'mi İndir',
 				'theme-dark': 'Karanlık Mod',
@@ -4319,8 +4401,8 @@
 				'skill-soft-13': 'Mentoring',
 				'toast-ready': 'Takk for interessen – ta gjerne kontakt når som helst!',
 				'page-title': 'Ing. Mohammed Sadiq Aljomai | Portefølje for Biomedisinsk Ingeniør',
-				'nav-cv': 'Min CV',
-				'modal_cv_title': 'Min CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; Min CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; Min CV',
 				'modal_cv_subtitle': 'Mohammed Sadiq Aljomai – Biomedisinsk Ingeniør',
 				'cv-download-btn': 'Last ned min CV',
 				'theme-dark': 'Mørk modus',
@@ -4440,8 +4522,8 @@
 				'skill-soft-13': '指导',
 				'toast-ready': '感谢您的关注 – 欢迎随时与我联系！',
 				'page-title': '工程师 穆罕默德·萨迪克·阿尔朱迈 | 生物医学工程师作品集',
-				'nav-cv': '我的简历',
-				'modal_cv_title': '我的简历',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; 我的简历',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; 我的简历',
 				'modal_cv_subtitle': '穆罕默德·萨迪克·阿尔朱迈 – 生物医学工程师',
 				'cv-download-btn': '下载我的简历',
 				'theme-dark': '暗色模式',
@@ -4561,8 +4643,8 @@
 				'skill-soft-13': '멘토링',
 				'toast-ready': '관심을 가져주셔서 감사합니다 – 언제든지 연락 주세요!',
 				'page-title': '엔지니어 무하마드 사디크 알주마이 | 의공학 엔지니어 포트폴리오',
-				'nav-cv': '내 이력서',
-				'modal_cv_title': '내 이력서',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; 내 이력서',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; 내 이력서',
 				'modal_cv_subtitle': '무하마드 사디크 알주마이 – 의공학 엔지니어',
 				'cv-download-btn': '이력서 다운로드',
 				'theme-dark': '다크 모드',
@@ -4682,8 +4764,8 @@
 				'skill-soft-13': 'メンタリング',
 				'toast-ready': 'ご関心をお寄せいただきありがとうございます – いつでもお気軽にご連絡ください！',
 				'page-title': 'エンジニア ムハンマド・サーディク・アルジュマイ | 生体医工学者ポートフォリオ',
-				 'nav-cv': '私のCV',
-				'modal_cv_title': '私のCV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; 私のCV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; 私のCV',
 				'modal_cv_subtitle': 'ムハンマド・サーディク・アルジュマイ – 生体医工学者',
 				'cv-download-btn': 'CVをダウンロード',
 				'theme-dark': 'ダークモード',
@@ -4803,8 +4885,8 @@
 				'skill-soft-13': 'Mentoria',
 				'toast-ready': 'Obrigado pelo interesse – sinta-se à vontade para entrar em contato a qualquer momento!',
 				'page-title': 'Eng. Mohammed Sadiq Aljomai | Portfólio de Engenheiro Biomédico',
-				'nav-cv': 'Meu CV',
-				'modal_cv_title': 'Meu CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; Meu CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; Meu CV',
 				'modal_cv_subtitle': 'Mohammed Sadiq Aljomai – Engenheiro Biomédico',
 				'cv-download-btn': 'Baixar meu CV',
 				'theme-dark': 'Modo escuro',
@@ -4924,8 +5006,8 @@
 				'skill-soft-13': 'Наставничество',
 				'toast-ready': 'Спасибо за ваш интерес – не стесняйтесь обращаться ко мне в любое время!',
 				'page-title': 'Инж. Мохаммед Садик Аль-Джомаи | Портфолио биомедицинского инженера',
-				'nav-cv': 'Моё резюме',
-				'modal_cv_title': 'Моё резюме',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; Моё резюме',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; Моё резюме',
 				'modal_cv_subtitle': 'Мохаммед Садик Аль-Джомаи – Биомедицинский инженер',
 				'cv-download-btn': 'Скачать резюме',
 				'theme-dark': 'Тёмная тема',
@@ -5045,8 +5127,8 @@
 				'skill-soft-13': 'मार्गदर्शन',
 				'toast-ready': 'आपकी रुचि के लिए धन्यवाद – किसी भी समय मुझसे संपर्क करने में संकोच न करें!',
 				'page-title': 'इंजी. मुहम्मद सादिक अल-जुमई | बायोमेडिकल इंजीनियर पोर्टफोलियो',
-				'nav-cv': 'मेरा CV',
-				'modal_cv_title': 'मेरा CV',
+				'nav-cv': '<i class="fa-solid fa-file-alt"></i>&nbsp; मेरा CV',
+				'modal_cv_title': '<i class="fa-solid fa-file-alt"></i>&nbsp; मेरा CV',
 				'modal_cv_subtitle': 'मुहम्मद सादिक अल-जुमई – बायोमेडिकल इंजीनियर',
 				'cv-download-btn': 'मेरा CV डाउनलोड करें',
 				'theme-dark': 'डार्क मोड',
