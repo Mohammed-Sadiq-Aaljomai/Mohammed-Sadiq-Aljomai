@@ -816,7 +816,7 @@
         }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 28px;
         }
         .project-card {
@@ -1001,7 +1001,7 @@
         /* ──────────── HABITS SECTION ──────────── */
         .habits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
         }
         .habit-card {
@@ -1105,7 +1105,7 @@
         /* ──────────── SEMINARS SECTION ──────────── */
         .seminars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 28px;
         }
         .seminar-card {
@@ -1552,6 +1552,13 @@
             .projects-grid { grid-template-columns: 1fr 1fr; }
             .cert-grid { grid-template-columns: 1fr 1fr; }
             .seminars-grid { grid-template-columns: 1fr 1fr; }
+			.profile-wrapper {
+				padding-top: 40px !important;
+				padding-bottom: 20px !important;
+			}
+			.profile-overlap-area {
+				margin: 40px auto 25px auto !important;
+			}
         }
 
         @media (max-width: 768px) {
@@ -3181,8 +3188,8 @@
 		  }
 		  
 		  .read-more-btn {
-			font-size: 0.55rem !important;
-			padding: 3px 10px !important;
+			font-size: 0.70rem !important;
+			padding: 6px 16px !important;
 		  }
 		}
 		@media (max-width: 768px) {
@@ -3336,8 +3343,8 @@
 		  }
 		  
 		  .discover-btn {
-			font-size: 0.55rem !important;
-			padding: 3px 10px !important;
+			font-size: 0.70rem !important;
+			padding: 6px 16px !important;
 		  }
 		}
 		@media (max-width: 768px) {
@@ -3573,8 +3580,8 @@
 		  
 		  #cvContactBtn,
 		  #downloadCvBtn {
-			font-size: 0.65rem !important;
-			padding: 6px 16px !important;
+			font-size: 0.75rem !important;
+			padding: 8px 18px !important;
 		  }
 		}
 
@@ -3599,8 +3606,8 @@
 		  
 		  #cvContactBtn,
 		  #downloadCvBtn {
-			font-size: 0.55rem !important;
-			padding: 4px 12px !important;
+			font-size: 0.70rem !important;
+			padding: 6px 16px !important;
 		  }
 		}
 		@media (max-width: 768px) {
@@ -3755,6 +3762,64 @@
 		  margin-left: 4px !important;
 		}
 		
+		/* ─── TABLET & PHONE: at least 2 cards per row ─── */
+		@media (max-width: 992px) {
+		  .education-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; }
+		  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; }
+		  .cert-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important; }
+		  .seminars-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; }
+		  .habits-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; }
+		  .languages-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important; }
+		  .skills-wrapper { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; }
+		}
+
+		@media (max-width: 768px) {
+		  .education-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important; }
+		  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important; }
+		  .cert-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important; }
+		  .seminars-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important; }
+		  .habits-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important; }
+		  .languages-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important; }
+		  .skills-wrapper { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; }
+		}
+
+		@media (max-width: 480px) {
+		  .education-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important; }
+		  .projects-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important; }
+		  .cert-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; }
+		  .seminars-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; }
+		  .habits-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important; }
+		  .languages-grid { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important; }
+		  .skills-wrapper { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important; }
+		}
+		@media (max-width: 768px) {
+		  .cover-banner { height: 180px !important; }
+		  .profile-overlap-area { margin-top: -50px !important; padding: 0 15px !important; gap: 8px !important; }
+		  .profile-pic-large { width: 110px !important; height: 110px !important; border-width: 4px !important; }
+		  .profile-pic-large img { width: 110px !important; height: 110px !important; }
+		  .profile-name-block h1 { font-size: 1.4rem !important; }
+		  .profile-name-block .profile-title { font-size: 0.95rem !important; }
+		  .profile-contact-btn { font-size: 0.85rem !important; padding: 8px 20px !important; }
+		}
+		@media (max-width: 480px) {
+		  .cover-banner { height: 160px !important; }
+		  .profile-overlap-area { margin-top: -50px !important; }
+		  .profile-pic-large { width: 85px !important; height: 85px !important; }
+		  .profile-pic-large img { width: 85px !important; height: 85px !important; }
+		  .profile-name-block h1 { font-size: 1.1rem !important; }
+		  .profile-name-block .profile-title { font-size: 0.8rem !important; }
+		  .profile-contact-btn { font-size: 0.75rem !important; padding: 6px 16px !important; }
+		 
+		}
+		/* ─── Smaller font for Personal Details on phones ─── */
+		@media (max-width: 480px) {
+			.about-info-card .info-table td,
+			.about-info-card .info-row,
+			.about-info-card .info-label,
+			.about-info-card .info-value {
+				font-size: 0.5rem !important;
+			}
+		}
 		
 		
     </style>
