@@ -567,7 +567,7 @@
         }
         .info-row {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 6px;
             padding: 12px 0;
             border-bottom: 1px solid #f0f4f5;
@@ -595,6 +595,10 @@
         }
         .info-row .info-value {
             color: var(--text-light);
+			flex: 1 1 0;
+			min-width: 0;
+			overflow-wrap: break-word;
+			word-break: break-word;
         }
         .about-bio-card {
             background: #fff;
@@ -2215,7 +2219,7 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-start;
-			align-items: center;
+			align-items: flex-start;
 		}
 		.about-info-card .info-icon {
 			margin-right: 6px;
@@ -3044,25 +3048,25 @@
 		@media (max-width: 480px) {
 		  .about-info-card h3,
 		  .about-bio-card h3 {
-			font-size: 0.8rem !important;
+			font-size: 0.9rem !important;
 		  }
 		  
 		  .about-bio-card p {
-			font-size: 0.7rem !important;
+			font-size: 0.8rem !important;
 		  }
 		  
 		  .info-row {
-			font-size: 0.60rem !important;
-			flex-wrap: wrap !important;
+			font-size: 0.7rem !important;
+			flex-wrap: nowrap !important;
 		  }
 		  
 		  .info-label {
 			min-width: 40px !important;
-			font-size: 0.65rem !important;
+			font-size: 0.7rem !important;
 		  }
 		  
 		  .info-value {
-			font-size: 0.65rem !important;
+			font-size: 0.7rem !important;
 		  }
 		}
 		@media (max-width: 768px) {
@@ -3118,7 +3122,7 @@
 		  
 		  .info-row {
 			font-size: 0.65rem !important;
-			flex-wrap: wrap !important;
+			flex-wrap: nowrap !important;
 		  }
 		  
 		  .info-label {
@@ -3678,7 +3682,7 @@
 		  }
 		  
 		  .nav-logo i {
-			font-size: 1.2rem !important;
+			font-size: 1.6rem !important;
 		  }
 		  
 		  .hamburger span {
@@ -3724,17 +3728,17 @@
 		  }
 		  
 		  .nav-logo {
-			font-size: 0.8rem !important;
+			font-size: 0.95rem !important;
 		  }
 		  
 		  .nav-logo i {
-			font-size: 1.0rem !important;
+			font-size: 2.0rem !important;
 		  }
 		  
 		  .hamburger span {
-			width: 16px !important;
-			height: 1.5px !important;
-			gap: 3px !important;
+			 width: 24px !important;
+			 height: 2.5px !important;
+			 gap: 5px !important;
 		  }
 		  
 		  .nav-links {
@@ -3742,14 +3746,14 @@
 		  }
 		  
 		  .nav-links a {
-			font-size: 0.7rem !important;
-			padding: 4px 10px !important;
+			font-size: 0.9rem !important;
+			padding: 8px 14px !important;
 		  }
 		  
 		  .nav-links .lang-dropdown-btn,
 		  .nav-links .theme-toggle-btn {
-			font-size: 0.7rem !important;
-			padding: 4px 10px !important;
+			font-size: 0.9rem !important;
+			padding: 8px 14px !important;
 		  }
 		}
 		html[dir="rtl"] .about-info-card .info-row {
@@ -3817,7 +3821,7 @@
 			.about-info-card .info-row,
 			.about-info-card .info-label,
 			.about-info-card .info-value {
-				font-size: 0.5rem !important;
+				font-size: 0.7rem !important;
 			}
 		}
 		
